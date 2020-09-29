@@ -6,20 +6,14 @@ import re
 
 class ImageRenamer:
     def __init__(self, filename):
-        self.filename = []
+        self.filename = None
         if os.path.isfile(filename):
-            self.filename = [self.change_file_name(filename)]
-
-        elif os.path.isdir(filename):
-            for f in os.listdir(filename):
-                try:
-                    im = Image.open(os.path.join(filename, f))
-                    im.verify()
-                    self.filename.append(self.change_file_name(os.path.join(filename, f)))
-                except Exception:
-                    pass
-        else:
-            pass
+            try:
+                im = Image.open(filename)
+                im.verify()
+                self.filename = self.change_file_name(os.path.join(os.getcwd(), filename))
+            except Exception:
+                pass
 
     def change_file_name(self, file_path):
         parent_path = os.path.dirname(file_path)

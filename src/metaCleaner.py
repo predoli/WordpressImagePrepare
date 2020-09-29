@@ -1,16 +1,20 @@
 from exif import Image
 import json
 
+
 class MetaCleaner:
     conf = {}
     filename = ''
     img = None
 
     def __init__(self, conf_file, filename):
-        self.read_conf(conf_file)
-        self.read_image(filename)
-        self.replace_exif()
-        self.write_image(filename)
+        if filename:
+            self.read_conf(conf_file)
+            self.read_image(filename)
+            self.replace_exif()
+            self.write_image(filename)
+        else:
+            pass
 
     def read_conf(self, conf_file):
         with open(conf_file) as json_file:

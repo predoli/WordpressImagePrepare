@@ -7,10 +7,13 @@ class ImageResizer:
     conf = {}
 
     def __init__(self, conf_file, filename):
-        self.read_conf(conf_file)
-        self.read_image(filename)
-        self.resize_image()
-        self.write_image(filename)
+        if filename:
+            self.read_conf(conf_file)
+            self.read_image(filename)
+            self.resize_image()
+            self.write_image(filename)
+        else:
+            pass
 
     def read_image(self, filename):
         self.im = Image.open(filename)
