@@ -2,12 +2,13 @@ import os
 from pathlib import Path
 from PIL import Image, UnidentifiedImageError
 import re
+import sys
 
 
 class ImageRenamer:
     def __init__(self, filename):
         self.filename = None
-        if os.path.isfile(filename):
+        if filename and os.path.isfile(filename):
             try:
                 im = Image.open(filename)
                 im.verify()

@@ -10,9 +10,12 @@ class MetaCleaner:
     def __init__(self, conf_file, filename):
         if filename:
             self.read_conf(conf_file)
-            self.read_image(filename)
-            self.replace_exif()
-            self.write_image(filename)
+            try:
+                self.read_image(filename)
+                self.replace_exif()
+                self.write_image(filename)
+            except Exception:
+                pass
         else:
             pass
 
