@@ -6,7 +6,7 @@ The WordpressImagePrepare tool executes the following tasks
 - Resizing and Cropping according to configurable format
 ## Requirements
 ## Usage
-<code>WordpressImagePrepare [options] [files]</code>
+<code>WordpressImagePrepare [options] [files]</code>. 
 <code>find Gallery -type f | xargs python3 src/main.py
 </code>
 ### Examples
