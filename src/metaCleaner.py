@@ -7,9 +7,9 @@ class MetaCleaner:
     filename = ''
     img = None
 
-    def __init__(self, conf_file, filename):
+    def __init__(self, conf, filename):
         if filename:
-            self.read_conf(conf_file)
+            self.conf = conf
             try:
                 self.read_image(filename)
                 self.replace_exif()
@@ -18,10 +18,6 @@ class MetaCleaner:
                 pass
         else:
             pass
-
-    def read_conf(self, conf_file):
-        with open(conf_file) as json_file:
-            self.conf = json.load(json_file)
 
     def read_image(self, filename):
         with open(filename, 'rb') as image_file:

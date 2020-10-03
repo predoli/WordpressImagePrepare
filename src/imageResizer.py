@@ -6,9 +6,9 @@ class ImageResizer:
     im = None
     conf = {}
 
-    def __init__(self, conf_file, filename):
+    def __init__(self, conf, filename):
         if filename:
-            self.read_conf(conf_file)
+            self.conf = conf
             self.read_image(filename)
             self.resize_image()
             self.write_image(filename)
@@ -17,10 +17,6 @@ class ImageResizer:
 
     def read_image(self, filename):
         self.im = Image.open(filename)
-
-    def read_conf(self, conf_file):
-        with open(conf_file) as json_file:
-            self.conf = json.load(json_file)
 
     def resize_image(self):
         conf_size = tuple(self.conf['size'])
