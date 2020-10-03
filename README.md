@@ -8,7 +8,7 @@ The WordpressImagePrepare tool executes the following tasks
 Folder naming is expected in the form *foo_bar*, *foo-bar* or *fooBar* and **not** *foo bar*.
 ## Usage
 <code>wordpress-image-prepare [options] [files]</code>  
-<code>find *Foo* -type f | xargs wordpress-image-prepare</code>  
+<code>find *Foo* -type f | xargs wordpress-image-prepare -m -r</code>  
 ### Examples
 ### Options:
 #### -c: config file
