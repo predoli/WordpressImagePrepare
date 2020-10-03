@@ -1,16 +1,17 @@
-#Image Processing
-##Overview
+# Image Processing
+## Overview
 The WordpressImagePrepare tool executes the following tasks
 - Renaming according to directory name
 - Meta data cleaning to a configurable value
 - Resizing and Cropping according to configurable format
-##Requirements
-##Usage
+## Requirements
+Folder naming is expected in the form *foo_bar*, *foo-bar* or *fooBar* and not *foo bar*.
+## Usage
 <code>WordpressImagePrepare [options] [files]</code>
 <code>find Gallery -type f | xargs python3 src/main.py
 </code>
-###Examples
-###Options:
+### Examples
+### Options:
 #### -c: config file
 provide config file in the form:  
 <code>{<br/>
@@ -23,4 +24,4 @@ provide config file in the form:
 Per default the above config will be used
 #### -m override metadata
 #### -r resize and crop image
-##Dependencies
+## Dependencies
