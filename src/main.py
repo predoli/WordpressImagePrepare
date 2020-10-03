@@ -15,10 +15,14 @@ def read_conf(conf_file):
 
 def main():
     parser = argparse.ArgumentParser(description='Rename and Resize Images')
+    parser.add_argument('-r', dest='image_resize', help='image resize', action='store_true', default=False)
+    parser.add_argument('-m', dest='metadata_overwrite', help='metadata overwrite', action='store_true', default=False)
     parser.add_argument('-c', dest='conf_file', type=str, help='configuration file in json format', default=None)
     parser.add_argument('files', metavar='files', type=str, nargs='+', help='image files')
     args = parser.parse_args()
     files = args.files
+    image_resize = args.image_resize
+    metadata_overwrite = args.metadata_overwrite
     conf = None
     if args.conf_file:
         conf_file = args.conf_file
@@ -35,8 +39,10 @@ def main():
     for file in files:
         print(file)
         m = ImageRenamer(file)
-        MetaCleaner(conf, m.filename)
-        ImageResizer(conf, m.filename)
+        if metadata_overwrite:
+            MetaCleaner(conf, m.filename)
+        if image_resize:
+            ImageResizer(conf, m.filename)
 
 
 if __name__ == "__main__":
