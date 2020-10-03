@@ -5,9 +5,9 @@ The WordpressImagePrepare tool executes the following tasks
 - Meta data cleaning to a configurable value
 - Resizing and Cropping according to configurable format
 ## Requirements
-Folder naming is expected in the form *foo_bar*, *foo-bar* or *fooBar* and not *foo bar*.
+Folder naming is expected in the form *foo_bar*, *foo-bar* or *fooBar* and **not** *foo bar*.
 ## Usage
-<code>WordpressImagePrepare [options] [files]</code>
+<code>WordpressImagePrepare [options] [files]</code>  
 <code>find Gallery -type f | xargs python3 src/main.py
 </code>
 ### Examples
