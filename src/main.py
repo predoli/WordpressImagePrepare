@@ -1,8 +1,8 @@
 import argparse
 import json
-from metaCleaner import MetaCleaner
-from imageResizer import ImageResizer
-from imageRenamer import ImageRenamer
+from src.metaCleaner import MetaCleaner
+from src.imageResizer import ImageResizer
+from src.imageRenamer import ImageRenamer
 
 
 def read_conf(conf_file):
@@ -25,7 +25,7 @@ def main():
         conf = read_conf(conf_file)
     if conf is None:
         conf = {
-            "size": [2100, 1500],
+            "size": [2000, 1500],
             "datetime": "2000:00:00 00:00:00",
             "gps_altitude": 8848.0,
             "gps_latitude": [19.0, 16.0, 46.6464],
@@ -37,6 +37,7 @@ def main():
         m = ImageRenamer(file)
         MetaCleaner(conf, m.filename)
         ImageResizer(conf, m.filename)
+
 
 if __name__ == "__main__":
     main()

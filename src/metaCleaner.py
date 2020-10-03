@@ -31,12 +31,6 @@ class MetaCleaner:
             self.img.gps_longitude = tuple(self.conf['gps_longitude'])
             self.img.gps_datestamp = str(self.conf['datetime']).split(' ')[0]
             self.img.gps_timestamp = tuple([float(x) for x in (str(self.conf['datetime']).split(' ')[1].split(':'))])
-#            try:
-#                self.img.datetime = str(self.conf['datetime'])
-#                self.img.datetime_digitized = self.img.datetime
-#                self.img.datetime_original = self.img.datetime
-#            except Exception:
-#                pass
 
     def write_image(self, filename):
         with open(filename, 'wb') as new_image_file:
